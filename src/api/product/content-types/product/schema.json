@@ -1,0 +1,75 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "Product",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "scooter",
+        "part"
+      ]
+    },
+    "subcategory": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "price": {
+      "type": "integer"
+    },
+    "model": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "affiliateLink": {
+      "type": "string"
+    },
+    "featured": {
+      "type": "boolean"
+    },
+    "brand": {
+      "type": "string"
+    },
+    "rating": {
+      "type": "integer"
+    },
+    "nameEN": {
+      "type": "string"
+    },
+    "descriptionEN": {
+      "type": "text"
+    },
+    "blog_post": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::blog-post.blog-post",
+      "inversedBy": "products"
+    },
+    "slugEN": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blog_posts",
+  "info": {
+    "singularName": "blog-post",
+    "pluralName": "blog-posts",
+    "displayName": "blog-post",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "titleFr": {
+      "type": "string"
+    },
+    "titleEN": {
+      "type": "string"
+    },
+    "contentFr": {
+      "type": "blocks"
+    },
+    "contentEn": {
+      "type": "blocks"
+    },
+    "author": {
+      "type": "string"
+    },
+    "date": {
+      "type": "datetime"
+    },
+    "excerptFr": {
+      "type": "string"
+    },
+    "excerptEn": {
+      "type": "string"
+    },
+    "brand": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "featured": {
+      "type": "boolean"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product",
+      "mappedBy": "blog_post"
+    },
+    "slugFR": {
+      "type": "string"
+    },
+    "slugEN": {
+      "type": "string"
+    }
+  }
+}
