@@ -4,7 +4,7 @@
   "info": {
     "singularName": "blog-post",
     "pluralName": "blog-posts",
-    "displayName": "blog-post",
+    "displayName": "Blog post",
     "description": ""
   },
   "options": {
@@ -27,7 +27,7 @@
       "type": "string"
     },
     "date": {
-      "type": "datetime"
+      "type": "date"
     },
     "excerptFr": {
       "type": "string"
@@ -44,7 +44,7 @@
     "featured": {
       "type": "boolean"
     },
-    "products": {
+    "relatedProducts": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::product.product",
@@ -55,6 +55,17 @@
     },
     "slugEN": {
       "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }

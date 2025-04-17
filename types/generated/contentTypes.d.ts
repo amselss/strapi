@@ -373,7 +373,7 @@ export interface ApiBlogPostBlogPost extends Struct.CollectionTypeSchema {
   collectionName: 'blog_posts';
   info: {
     description: '';
-    displayName: 'blog-post';
+    displayName: 'Blog post';
     pluralName: 'blog-posts';
     singularName: 'blog-post';
   };
@@ -388,10 +388,11 @@ export interface ApiBlogPostBlogPost extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    date: Schema.Attribute.DateTime;
+    date: Schema.Attribute.Date;
     excerptEn: Schema.Attribute.String;
     excerptFr: Schema.Attribute.String;
     featured: Schema.Attribute.Boolean;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -399,12 +400,60 @@ export interface ApiBlogPostBlogPost extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     model: Schema.Attribute.String;
-    products: Schema.Attribute.Relation<'oneToMany', 'api::product.product'>;
     publishedAt: Schema.Attribute.DateTime;
+    relatedProducts: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product.product'
+    >;
     slugEN: Schema.Attribute.String;
     slugFR: Schema.Attribute.String;
     titleEN: Schema.Attribute.String;
     titleFr: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPriceComparisonPriceComparison
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'price_comparisons';
+  info: {
+    description: '';
+    displayName: 'Price comparison';
+    pluralName: 'price-comparisons';
+    singularName: 'price-comparison';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    autonomy: Schema.Attribute.Integer;
+    brand: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    descriptionEn: Schema.Attribute.Text;
+    descriptionFr: Schema.Attribute.Text;
+    featured: Schema.Attribute.Boolean;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::price-comparison.price-comparison'
+    > &
+      Schema.Attribute.Private;
+    marketplaceLinks: Schema.Attribute.Component<
+      'affiliation.marketplace-links',
+      true
+    >;
+    maxSpeed: Schema.Attribute.Integer;
+    model: Schema.Attribute.String;
+    name: Schema.Attribute.String;
+    power: Schema.Attribute.Integer;
+    publishedAt: Schema.Attribute.DateTime;
+    slugEn: Schema.Attribute.String;
+    slugFr: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -968,6 +1017,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::blog-post.blog-post': ApiBlogPostBlogPost;
+      'api::price-comparison.price-comparison': ApiPriceComparisonPriceComparison;
       'api::product.product': ApiProductProduct;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

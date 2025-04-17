@@ -62,14 +62,14 @@
     "descriptionEN": {
       "type": "text"
     },
+    "slugEN": {
+      "type": "string"
+    },
     "blog_post": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::blog-post.blog-post",
-      "inversedBy": "products"
-    },
-    "slugEN": {
-      "type": "string"
+      "inversedBy": "relatedProducts"
     }
   }
 }

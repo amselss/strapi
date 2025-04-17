@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_affiliation_marketplace_links",
+  "info": {
+    "displayName": "marketplaceLinks"
+  },
+  "options": {},
+  "attributes": {
+    "marketplaceName": {
+      "type": "string"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "affiliateLink": {
+      "type": "string"
+    },
+    "promoCode": {
+      "type": "string"
+    },
+    "discountPercentage": {
+      "type": "integer"
+    }
+  }
+}

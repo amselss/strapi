@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "price_comparisons",
+  "info": {
+    "singularName": "price-comparison",
+    "pluralName": "price-comparisons",
+    "displayName": "Price comparison",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "autonomy": {
+      "type": "integer"
+    },
+    "maxSpeed": {
+      "type": "integer"
+    },
+    "power": {
+      "type": "integer"
+    },
+    "marketplaceLinks": {
+      "displayName": "marketplaceLinks",
+      "type": "component",
+      "repeatable": true,
+      "component": "affiliation.marketplace-links"
+    },
+    "brand": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "descriptionFr": {
+      "type": "text"
+    },
+    "descriptionEn": {
+      "type": "text"
+    },
+    "featured": {
+      "type": "boolean"
+    },
+    "slugFr": {
+      "type": "string"
+    },
+    "slugEn": {
+      "type": "string"
+    }
+  }
+}
